@@ -18,6 +18,11 @@ def with_configuration(options = {})
   yield
 end
 
+class FakeWeb::StubSocket
+  def close
+  end
+end
+
 RSpec.configure do |config|
   config.include(LocaleappIntegrationData)
   config.include(LocaleappSynchronizationData)
